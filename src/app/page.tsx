@@ -158,9 +158,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
+              <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Silver%20(Basic)%20seharga%20Rp99k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
                 Pilih Silver
-              </button>
+              </a>
             </div>
             
             {/* Premium Plan */}
@@ -177,9 +177,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-3 rounded-xl bg-rose-500 text-white font-semibold hover:bg-rose-600 transition-all shadow-md hover:shadow-lg">
+              <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Gold%20(Premium)%20seharga%20Rp199k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl bg-rose-500 text-white font-semibold hover:bg-rose-600 transition-all shadow-md hover:shadow-lg">
                 Pilih Gold
-              </button>
+              </a>
             </div>
 
             {/* Exclusive Plan */}
@@ -193,9 +193,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
+              <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Platinum%20(Eksklusif)%20seharga%20Rp349k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
                 Pilih Platinum
-              </button>
+              </a>
             </div>
           </div>
         </div>
