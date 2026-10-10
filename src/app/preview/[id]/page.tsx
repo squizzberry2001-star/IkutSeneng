@@ -10,8 +10,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PreviewPage({ params }: { params: { id: string } }) {
-  const template = TEMPLATES_DATA.find((t) => t.id === params.id);
+export default async function PreviewPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const template = TEMPLATES_DATA.find((t) => t.id === id);
 
   if (!template) {
     notFound();
