@@ -76,9 +76,9 @@ export default function TemaDetail({ params }: { params: { id: string } }) {
           </div>
 
           <div className="flex gap-4">
-            <button className="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-md">
+            <Link href={`/preview/${template.id}`} className="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-md text-center">
               Live Preview
-            </button>
+            </Link>
             <button className="flex-1 bg-rose-500 text-white py-4 rounded-xl font-bold hover:bg-rose-600 transition-all shadow-md">
               Pesan Tema Ini
             </button>
