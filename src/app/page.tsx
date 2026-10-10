@@ -5,27 +5,7 @@ import { Heart, Sparkles, MapPin, MailOpen, CalendarClock, Smartphone, ArrowRigh
 import Link from "next/link";
 import Image from "next/image";
 
-// Architecture for 100+ templates: Data driven approach
-const TEMPLATES = [
-  {
-    id: "rustic-floral",
-    name: "Rustic Floral",
-    category: "Premium",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: "dark-elegance",
-    name: "Dark Elegance",
-    category: "Exclusive",
-    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: "minimalist-white",
-    name: "Minimalist White",
-    category: "Basic",
-    image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=800",
-  },
-];
+import { TEMPLATES_DATA as TEMPLATES } from "@/data/templates";
 
 export default function Home() {
   return (
@@ -126,32 +106,33 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {TEMPLATES.map((template, idx) => (
-              <motion.div 
-                key={idx}
-                whileHover={{ scale: 1.02 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer"
-              >
-                <div className="aspect-[3/4] relative">
-                  <Image 
-                    src={template.image} 
-                    alt={template.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
-                  <div>
-                    <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3 inline-block">
-                      {template.category}
-                    </span>
-                    <h3 className="text-2xl font-bold">{template.name}</h3>
+              <Link href={`/tema/${template.id}`} key={idx}>
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="group relative rounded-2xl overflow-hidden cursor-pointer"
+                >
+                  <div className="aspect-[3/4] relative">
+                    <Image 
+                      src={template.image} 
+                      alt={template.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                   </div>
-                  <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </motion.div>
+                  <div className="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
+                    <div>
+                      <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3 inline-block">
+                        {template.category}
+                      </span>
+                      <h3 className="text-2xl font-bold">{template.name}</h3>
+                    </div>
+                    <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
