@@ -16,6 +16,8 @@ import FairytaleTheme from "@/components/themes/FairytaleTheme";
 import MinimalistModernTheme from "@/components/themes/MinimalistModernTheme";
 import VintageWaxSealTheme from "@/components/themes/VintageWaxSealTheme";
 import IslamicLuxuryTheme from "@/components/themes/IslamicLuxuryTheme";
+import NewspaperPressTheme from "@/components/themes/NewspaperPressTheme";
+import CinemaPremiereTheme from "@/components/themes/CinemaPremiereTheme";
 
 const PRESET_COVERS = [
   { name: "Rustic Floral", url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" },
@@ -65,27 +67,35 @@ export default function BuilderPage() {
       const tags = katsudotoTheme.tags || [];
       const nameLower = katsudotoTheme.name.toLowerCase();
 
-      // Adat / Tradisional
+      // 1. Cinema / Premiere Red Carpet
+      if (nameLower.includes("taylor") || nameLower.includes("gatsby") || nameLower.includes("cinema") || nameLower.includes("movie")) {
+        return <CinemaPremiereTheme data={data} />;
+      }
+      // 2. Newspaper Press Edition
+      if (nameLower.includes("beverly") || nameLower.includes("press") || nameLower.includes("chronicle") || nameLower.includes("times")) {
+        return <NewspaperPressTheme data={data} />;
+      }
+      // 3. Adat / Tradisional
       if (tags.includes("adat") || nameLower.includes("ningrum") || nameLower.includes("chinese") || nameLower.includes("jawa")) {
         return <KatsudotoNingrumTheme data={data} />;
       }
-      // Vintage / Wax Seal
+      // 4. Vintage / Wax Seal
       if (tags.includes("vintage") || nameLower.includes("roman") || nameLower.includes("classic") || nameLower.includes("nostalgia")) {
         return <VintageWaxSealTheme data={data} />;
       }
-      // Islamic / Syar'i
+      // 5. Islamic / Syar'i
       if (nameLower.includes("aulia") || nameLower.includes("alsa") || nameLower.includes("islamic") || nameLower.includes("syar")) {
         return <IslamicLuxuryTheme data={data} />;
       }
-      // Fairytale / Royal Stardust
+      // 6. Fairytale / Royal Stardust
       if (tags.includes("fairytale") || nameLower.includes("charera") || nameLower.includes("cassie") || nameLower.includes("cinderella")) {
         return <FairytaleTheme data={data} />;
       }
-      // Minimalist
+      // 7. Minimalist
       if (tags.includes("minimalist") || nameLower.includes("bianca") || nameLower.includes("nadia") || nameLower.includes("tia")) {
         return <MinimalistModernTheme data={data} />;
       }
-      // Floral
+      // 8. Floral
       if (tags.includes("floral") || nameLower.includes("eloise") || nameLower.includes("ivana") || nameLower.includes("silika")) {
         return <FloralGardenTheme data={data} />;
       }
@@ -96,6 +106,12 @@ export default function BuilderPage() {
     const selected = TEMPLATES_DATA.find((t) => t.id === data.templateId) || TEMPLATES_DATA[0];
     if (selected.style === "Dark Elegance" || selected.style === "Traditional") {
       return <KatsudotoNingrumTheme data={data} />;
+    }
+    if (selected.style === "Cinema") {
+      return <CinemaPremiereTheme data={data} />;
+    }
+    if (selected.style === "Newspaper") {
+      return <NewspaperPressTheme data={data} />;
     }
     if (selected.style === "Fairytale") {
       return <FairytaleTheme data={data} />;

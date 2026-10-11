@@ -8,6 +8,8 @@ import FairytaleTheme from "@/components/themes/FairytaleTheme";
 import MinimalistModernTheme from "@/components/themes/MinimalistModernTheme";
 import VintageWaxSealTheme from "@/components/themes/VintageWaxSealTheme";
 import IslamicLuxuryTheme from "@/components/themes/IslamicLuxuryTheme";
+import NewspaperPressTheme from "@/components/themes/NewspaperPressTheme";
+import CinemaPremiereTheme from "@/components/themes/CinemaPremiereTheme";
 
 export function generateStaticParams() {
   const localParams = TEMPLATES_DATA.map((template) => ({
@@ -32,7 +34,43 @@ export default async function PreviewPage({
     const tags = katsudotoDesign.tags || [];
     const nameLower = katsudotoDesign.name.toLowerCase();
 
-    // Adat / Tradisional
+    // 1. Cinema / Premiere Red Carpet
+    if (nameLower.includes("taylor") || nameLower.includes("gatsby") || nameLower.includes("cinema") || nameLower.includes("movie")) {
+      return (
+        <CinemaPremiereTheme 
+          data={{
+            coverImage: katsudotoDesign.preview,
+            groomNickname: "Leonardo",
+            brideNickname: katsudotoDesign.name,
+            groomName: "Leonardo DiCaprio Hartono",
+            brideName: `${katsudotoDesign.name} Stone Sinclair`,
+            weddingDate: "Friday, 18 December 2026",
+            akadDate: "Friday, 18 December 2026",
+            resepsiDate: "Friday, 18 December 2026",
+          }}
+        />
+      );
+    }
+
+    // 2. Newspaper Press Edition (The Wedding Chronicle)
+    if (nameLower.includes("beverly") || nameLower.includes("press") || nameLower.includes("chronicle") || nameLower.includes("times")) {
+      return (
+        <NewspaperPressTheme 
+          data={{
+            coverImage: katsudotoDesign.preview,
+            groomNickname: "Franklin",
+            brideNickname: katsudotoDesign.name,
+            groomName: "Franklin Roosevelt Ward",
+            brideName: `${katsudotoDesign.name} Eleanor Vance`,
+            weddingDate: "Sunday, 25 October 2026",
+            akadDate: "Sunday, 25 October 2026",
+            resepsiDate: "Sunday, 25 October 2026",
+          }}
+        />
+      );
+    }
+
+    // 3. Adat / Tradisional Keraton Jawi (Dual Sliding Gates)
     if (tags.includes("adat") || nameLower.includes("ningrum") || nameLower.includes("chinese") || nameLower.includes("jawa")) {
       return (
         <KatsudotoNingrumTheme 
@@ -50,7 +88,7 @@ export default async function PreviewPage({
       );
     }
 
-    // Vintage / Wax Seal / Postal
+    // 4. Vintage Wax Seal / Surat Pos Antik
     if (tags.includes("vintage") || nameLower.includes("roman") || nameLower.includes("classic") || nameLower.includes("nostalgia")) {
       return (
         <VintageWaxSealTheme 
@@ -68,7 +106,7 @@ export default async function PreviewPage({
       );
     }
 
-    // Islamic / Syar'i / Arabesque
+    // 5. Islamic Luxury (Moroccan Arch & Bismillah)
     if (nameLower.includes("aulia") || nameLower.includes("alsa") || nameLower.includes("islamic") || nameLower.includes("syar")) {
       return (
         <IslamicLuxuryTheme 
@@ -86,7 +124,7 @@ export default async function PreviewPage({
       );
     }
 
-    // Fairytale / Royal Stardust
+    // 6. Fairytale (3D Storybook Flip & 4-Chapter Reader)
     if (tags.includes("fairytale") || nameLower.includes("charera") || nameLower.includes("cassie") || nameLower.includes("cinderella")) {
       return (
         <FairytaleTheme 
@@ -104,7 +142,7 @@ export default async function PreviewPage({
       );
     }
 
-    // Minimalist / Modern Editorial
+    // 7. Minimalist Modern (Vogue Kinfolk VIP Pass)
     if (tags.includes("minimalist") || nameLower.includes("bianca") || nameLower.includes("nadia") || nameLower.includes("tia")) {
       return (
         <MinimalistModernTheme 
@@ -122,7 +160,7 @@ export default async function PreviewPage({
       );
     }
 
-    // Floral / Pastel Garden
+    // 8. Floral Garden (App UX Bottom Dock & Heart Cannon)
     if (tags.includes("floral") || nameLower.includes("eloise") || nameLower.includes("ivana") || nameLower.includes("silika")) {
       return (
         <FloralGardenTheme 
@@ -165,6 +203,12 @@ export default async function PreviewPage({
 
   if (template.style === "Dark Elegance" || template.style === "Traditional") {
     return <KatsudotoNingrumTheme data={{ coverImage: template.image }} />;
+  }
+  if (template.style === "Cinema") {
+    return <CinemaPremiereTheme data={{ coverImage: template.image }} />;
+  }
+  if (template.style === "Newspaper") {
+    return <NewspaperPressTheme data={{ coverImage: template.image }} />;
   }
   if (template.style === "Fairytale") {
     return <FairytaleTheme data={{ coverImage: template.image }} />;
