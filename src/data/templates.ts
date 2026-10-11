@@ -2,7 +2,7 @@ export interface Template {
   id: string;
   name: string;
   category: 'Silver' | 'Gold' | 'Platinum';
-  style: 'Minimalist' | 'Floral' | 'Dark Elegance' | 'Rustic' | 'Modern' | 'Traditional';
+  style: 'Minimalist' | 'Floral' | 'Dark Elegance' | 'Rustic' | 'Modern' | 'Traditional' | 'Fairytale' | 'Vintage' | 'Islamic';
   image: string;
   price: number;
 }

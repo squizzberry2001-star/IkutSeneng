@@ -11,9 +11,11 @@ import { ALL_DESIGNS } from "@/data/designsData";
 import { InvitationData, DEFAULT_INVITATION_DATA, MUSIC_PRESETS } from "@/types/invitation";
 import KatsudotoVictoriaTheme from "@/components/themes/KatsudotoVictoriaTheme";
 import KatsudotoNingrumTheme from "@/components/themes/KatsudotoNingrumTheme";
-import RusticTheme from "@/components/themes/RusticTheme";
-import DarkEleganceTheme from "@/components/themes/DarkEleganceTheme";
-import MinimalistTheme from "@/components/themes/MinimalistTheme";
+import FloralGardenTheme from "@/components/themes/FloralGardenTheme";
+import FairytaleTheme from "@/components/themes/FairytaleTheme";
+import MinimalistModernTheme from "@/components/themes/MinimalistModernTheme";
+import VintageWaxSealTheme from "@/components/themes/VintageWaxSealTheme";
+import IslamicLuxuryTheme from "@/components/themes/IslamicLuxuryTheme";
 
 const PRESET_COVERS = [
   { name: "Rustic Floral", url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" },
@@ -60,10 +62,34 @@ export default function BuilderPage() {
   const renderPreviewTheme = () => {
     const katsudotoTheme = ALL_DESIGNS.find((t) => t.id === data.templateId);
     if (katsudotoTheme) {
-      const isAdat = katsudotoTheme.tags.includes("adat") || katsudotoTheme.name.toLowerCase().includes("ningrum");
-      if (isAdat) {
+      const tags = katsudotoTheme.tags || [];
+      const nameLower = katsudotoTheme.name.toLowerCase();
+
+      // Adat / Tradisional
+      if (tags.includes("adat") || nameLower.includes("ningrum") || nameLower.includes("chinese") || nameLower.includes("jawa")) {
         return <KatsudotoNingrumTheme data={data} />;
       }
+      // Vintage / Wax Seal
+      if (tags.includes("vintage") || nameLower.includes("roman") || nameLower.includes("classic") || nameLower.includes("nostalgia")) {
+        return <VintageWaxSealTheme data={data} />;
+      }
+      // Islamic / Syar'i
+      if (nameLower.includes("aulia") || nameLower.includes("alsa") || nameLower.includes("islamic") || nameLower.includes("syar")) {
+        return <IslamicLuxuryTheme data={data} />;
+      }
+      // Fairytale / Royal Stardust
+      if (tags.includes("fairytale") || nameLower.includes("charera") || nameLower.includes("cassie") || nameLower.includes("cinderella")) {
+        return <FairytaleTheme data={data} />;
+      }
+      // Minimalist
+      if (tags.includes("minimalist") || nameLower.includes("bianca") || nameLower.includes("nadia") || nameLower.includes("tia")) {
+        return <MinimalistModernTheme data={data} />;
+      }
+      // Floral
+      if (tags.includes("floral") || nameLower.includes("eloise") || nameLower.includes("ivana") || nameLower.includes("silika")) {
+        return <FloralGardenTheme data={data} />;
+      }
+      // Default Editorial
       return <KatsudotoVictoriaTheme data={data} />;
     }
 
@@ -71,6 +97,22 @@ export default function BuilderPage() {
     if (selected.style === "Dark Elegance" || selected.style === "Traditional") {
       return <KatsudotoNingrumTheme data={data} />;
     }
+    if (selected.style === "Fairytale") {
+      return <FairytaleTheme data={data} />;
+    }
+    if (selected.style === "Floral") {
+      return <FloralGardenTheme data={data} />;
+    }
+    if (selected.style === "Minimalist") {
+      return <MinimalistModernTheme data={data} />;
+    }
+    if (selected.style === "Vintage") {
+      return <VintageWaxSealTheme data={data} />;
+    }
+    if (selected.style === "Islamic") {
+      return <IslamicLuxuryTheme data={data} />;
+    }
+
     return <KatsudotoVictoriaTheme data={data} />;
   };
 
