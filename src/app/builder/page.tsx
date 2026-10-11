@@ -7,7 +7,10 @@ import {
   Send, Eye, RefreshCw, Smartphone, Check, Sparkles, ExternalLink 
 } from "lucide-react";
 import { TEMPLATES_DATA } from "@/data/templates";
+import { ALL_DESIGNS } from "@/data/designsData";
 import { InvitationData, DEFAULT_INVITATION_DATA, MUSIC_PRESETS } from "@/types/invitation";
+import KatsudotoVictoriaTheme from "@/components/themes/KatsudotoVictoriaTheme";
+import KatsudotoNingrumTheme from "@/components/themes/KatsudotoNingrumTheme";
 import RusticTheme from "@/components/themes/RusticTheme";
 import DarkEleganceTheme from "@/components/themes/DarkEleganceTheme";
 import MinimalistTheme from "@/components/themes/MinimalistTheme";
@@ -55,18 +58,28 @@ export default function BuilderPage() {
 
   // Render template preview based on selected templateId
   const renderPreviewTheme = () => {
+    const katsudotoTheme = ALL_DESIGNS.find((t) => t.id === data.templateId);
+    if (katsudotoTheme) {
+      const isAdat = katsudotoTheme.tags.includes("adat") || katsudotoTheme.name.toLowerCase().includes("ningrum");
+      if (isAdat) {
+        return <KatsudotoNingrumTheme data={data} />;
+      }
+      return <KatsudotoVictoriaTheme data={data} />;
+    }
+
     const selected = TEMPLATES_DATA.find((t) => t.id === data.templateId) || TEMPLATES_DATA[0];
-    if (selected.style === "Floral" || selected.style === "Rustic") {
-      return <RusticTheme data={data} />;
+    if (selected.style === "Dark Elegance" || selected.style === "Traditional") {
+      return <KatsudotoNingrumTheme data={data} />;
     }
-    if (selected.style === "Dark Elegance") {
-      return <DarkEleganceTheme data={data} />;
-    }
-    return <MinimalistTheme data={data} />;
+    return <KatsudotoVictoriaTheme data={data} />;
   };
 
   // Generate WA Order text
-  const currentTemplate = TEMPLATES_DATA.find((t) => t.id === data.templateId) || TEMPLATES_DATA[0];
+  const currentTemplate = 
+    ALL_DESIGNS.find((t) => t.id === data.templateId) || 
+    TEMPLATES_DATA.find((t) => t.id === data.templateId) || 
+    { name: "Victoria", category: "Exclusive" };
+
   const waText = encodeURIComponent(
     `*FORM ORDER UNDANGAN DIGITAL IKUTSENENG*\n\n` +
     `📌 *Pilihan Tema:* ${currentTemplate.name} (${currentTemplate.category})\n` +
@@ -187,23 +200,28 @@ export default function BuilderPage() {
             {activeTab === "tema" && (
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-base font-bold text-white">Pilih Template Undangan</h2>
-                  <p className="text-xs text-slate-400">Pilih salah satu dari template desain eksklusif kami.</p>
+                  <h2 className="text-base font-bold text-white">Pilih Template Undangan (61+ Tema)</h2>
+                  <p className="text-xs text-slate-400">Pilih salah satu dari puluhan template desain eksklusif bergaya Katsudoto.</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  {TEMPLATES_DATA.map((tmpl) => {
+                <div className="grid grid-cols-2 gap-3 pt-2 max-h-[60vh] overflow-y-auto pr-1 no-scrollbar">
+                  {ALL_DESIGNS.map((tmpl) => {
                     const isSelected = data.templateId === tmpl.id;
                     return (
                       <div
                         key={tmpl.id}
-                        onClick={() => handleChange("templateId", tmpl.id)}
+                        onClick={() => {
+                          handleChange("templateId", tmpl.id);
+                          if (tmpl.preview) {
+                            handleChange("coverImage", tmpl.preview);
+                          }
+                        }}
                         className={`cursor-pointer rounded-2xl overflow-hidden border-2 transition-all group relative ${
                           isSelected ? "border-rose-500 shadow-lg shadow-rose-500/20 ring-2 ring-rose-500/20" : "border-slate-800 hover:border-slate-700 opacity-70 hover:opacity-100"
                         }`}
                       >
                         <div className="aspect-[3/4] relative bg-slate-900">
-                          <img src={tmpl.image} alt={tmpl.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          <img src={tmpl.preview} alt={tmpl.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                           {isSelected && (
                             <span className="absolute top-2 right-2 bg-rose-500 text-white p-1 rounded-full shadow">
@@ -211,10 +229,10 @@ export default function BuilderPage() {
                             </span>
                           )}
                           <div className="absolute bottom-2 left-2 right-2">
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white font-semibold">
-                              {tmpl.category}
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white font-semibold capitalize">
+                              {tmpl.tags[0] || tmpl.category}
                             </span>
-                            <p className="text-xs font-bold text-white mt-1 truncate">{tmpl.name}</p>
+                            <p className="text-xs font-bold text-white mt-1 truncate capitalize">{tmpl.name}</p>
                           </div>
                         </div>
                       </div>

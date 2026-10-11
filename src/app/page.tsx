@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { TEMPLATES_DATA as TEMPLATES } from "@/data/templates";
+import KatsudotoCatalog from "@/components/KatsudotoCatalog";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             <Link href="#features" className="text-slate-600 hover:text-rose-500 transition-colors">Fitur</Link>
-            <Link href="#templates" className="text-slate-600 hover:text-rose-500 transition-colors">Tema (100+)</Link>
+            <Link href="/desain" className="text-slate-600 hover:text-rose-500 transition-colors font-semibold">Katalog Desain</Link>
             <Link href="#pricing" className="text-slate-600 hover:text-rose-500 transition-colors">Harga</Link>
             <Link href="/builder" className="text-rose-600 font-semibold hover:text-rose-700 transition-colors flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200">
               <Sparkles className="w-3.5 h-3.5" /> Studio Builder
@@ -107,51 +108,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Templates Showcase */}
-      <section id="templates" className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Koleksi Tema Eksklusif</h2>
-              <p className="text-slate-400">Pilih dari 100+ desain arsitektur tema kami yang terus bertambah.</p>
-            </div>
-            <button className="mt-6 md:mt-0 text-rose-400 font-medium hover:text-rose-300 flex items-center gap-2">
-              Jelajahi Semua 100+ Tema <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {TEMPLATES.map((template, idx) => (
-              <Link href={`/tema/${template.id}`} key={idx}>
-                <motion.div 
-                  whileHover={{ scale: 1.02 }}
-                  className="group relative rounded-2xl overflow-hidden cursor-pointer"
-                >
-                  <div className="aspect-[3/4] relative">
-                    <Image 
-                      src={template.image} 
-                      alt={template.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                  </div>
-                  <div className="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
-                    <div>
-                      <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3 inline-block">
-                        {template.category}
-                      </span>
-                      <h3 className="text-2xl font-bold">{template.name}</h3>
-                    </div>
-                    <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-        </div>
+      {/* Templates Showcase (Katsudoto Style Catalog) */}
+      <section id="templates">
+        <KatsudotoCatalog showHero={false} />
       </section>
 
       {/* Pricing */}
