@@ -81,7 +81,7 @@ export default async function TemaDetail({ params }: { params: Promise<{ id: str
               Live Preview
             </Link>
             <a 
-              href={`https://wa.me/6281234567890?text=Halo%20Admin%20IkutSeneng,%20saya%20tertarik%20untuk%20memesan%20undangan%20digital%20tema%20*${template.name}*%20(Kategori:%20${template.category}).%20Bagaimana%20proses%20selanjutnya?`}
+              href={`https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20tertarik%20untuk%20memesan%20undangan%20digital%20tema%20*${encodeURIComponent(template.name)}*%20(Kategori:%20${template.category}).%20Bagaimana%20proses%20selanjutnya?`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 bg-rose-500 text-white py-4 rounded-xl font-bold hover:bg-rose-600 transition-all shadow-md text-center"

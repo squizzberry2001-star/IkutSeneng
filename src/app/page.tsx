@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Sparkles, MapPin, MailOpen, CalendarClock, Smartphone, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Heart, Sparkles, MapPin, MailOpen, CalendarClock, Smartphone, ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -22,9 +22,14 @@ export default function Home() {
             <Link href="#templates" className="text-slate-600 hover:text-rose-500 transition-colors">Tema (100+)</Link>
             <Link href="#pricing" className="text-slate-600 hover:text-rose-500 transition-colors">Harga</Link>
           </div>
-          <button className="bg-rose-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-rose-600 transition-all shadow-md hover:shadow-lg">
+          <a 
+            href="https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20ingin%20membuat%20undangan%20digital."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-rose-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-rose-600 transition-all shadow-md hover:shadow-lg inline-block"
+          >
             Buat Undangan
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -52,9 +57,14 @@ export default function Home() {
             <Link href="#templates" className="bg-slate-900 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
               Lihat 100+ Tema <ArrowRight className="w-5 h-5" />
             </Link>
-            <button className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-full text-base font-semibold hover:bg-slate-50 transition-all">
+            <a 
+              href="https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20mau%20tanya%20dan%20konsultasi%20tentang%20undangan%20digital."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-full text-base font-semibold hover:bg-slate-50 transition-all inline-flex items-center justify-center"
+            >
               Tanya Admin (WA)
-            </button>
+            </a>
           </div>
         </motion.div>
       </section>
@@ -158,7 +168,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Silver%20(Basic)%20seharga%20Rp99k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
+              <a href="https://wa.me/6289607090592?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Silver%20(Basic)%20seharga%20Rp99k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
                 Pilih Silver
               </a>
             </div>
@@ -177,7 +187,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Gold%20(Premium)%20seharga%20Rp199k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl bg-rose-500 text-white font-semibold hover:bg-rose-600 transition-all shadow-md hover:shadow-lg">
+              <a href="https://wa.me/6289607090592?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Gold%20(Premium)%20seharga%20Rp199k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl bg-rose-500 text-white font-semibold hover:bg-rose-600 transition-all shadow-md hover:shadow-lg">
                 Pilih Gold
               </a>
             </div>
@@ -193,7 +203,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Platinum%20(Eksklusif)%20seharga%20Rp349k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
+              <a href="https://wa.me/6289607090592?text=Halo%20Admin,%20saya%20ingin%20pesan%20paket%20Platinum%20(Eksklusif)%20seharga%20Rp349k" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-3 rounded-xl border-2 border-slate-200 font-semibold hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all">
                 Pilih Platinum
               </a>
             </div>
@@ -208,9 +218,14 @@ export default function Home() {
           <p className="text-rose-100 text-lg mb-8">
             Bergabung dengan ratusan pasangan lain yang telah membagikan kebahagiaannya bersama IkutSeneng.
           </p>
-          <button className="bg-white text-rose-500 px-8 py-4 rounded-full text-lg font-bold hover:bg-rose-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-            Mulai Buat Sekarang - Gratis Coba
-          </button>
+          <a 
+            href="https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20siap%20membuat%20undangan%20digital." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-block bg-white text-rose-500 px-8 py-4 rounded-full text-lg font-bold hover:bg-rose-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Mulai Buat Sekarang - Chat WhatsApp
+          </a>
         </div>
       </section>
 
@@ -231,6 +246,20 @@ export default function Home() {
           © 2026 IkutSeneng Digital Invitation. All rights reserved. Membangun kenangan yang tak terlupakan.
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20butuh%20bantuan%20dan%20informasi%20undangan%20digital."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat WhatsApp Admin"
+        className="fixed bottom-6 right-6 z-50 bg-emerald-500 text-white p-4 rounded-full shadow-2xl hover:bg-emerald-600 hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group"
+      >
+        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-sm font-semibold pl-1">
+          Chat CS Kami
+        </span>
+        <MessageCircle className="w-6 h-6" />
+      </a>
     </div>
   );
 }
