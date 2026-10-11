@@ -94,9 +94,14 @@ export default function AdminDashboard() {
             <h1 className="text-3xl font-bold text-slate-900">Dashboard Utama</h1>
             <p className="text-slate-500">Ringkasan performa bisnis undangan digital Anda.</p>
           </div>
-          <button className="bg-rose-500 text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-rose-600 transition-all flex items-center gap-2">
-            <Plus className="w-4 h-4" /> Tambah Klien Baru
-          </button>
+          <div className="flex gap-2">
+            <Link 
+              href="/builder"
+              className="bg-rose-500 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-rose-600 transition-all flex items-center gap-2 shadow-sm"
+            >
+              <Plus className="w-4 h-4" /> Buka Studio Builder
+            </Link>
+          </div>
         </header>
 
         {/* Stats */}

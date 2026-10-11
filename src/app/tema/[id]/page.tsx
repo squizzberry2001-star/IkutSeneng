@@ -76,18 +76,26 @@ export default async function TemaDetail({ params }: { params: Promise<{ id: str
             ))}
           </div>
 
-          <div className="flex gap-4">
-            <Link href={`/preview/${template.id}`} className="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-md text-center">
-              Live Preview
-            </Link>
-            <a 
-              href={`https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20tertarik%20untuk%20memesan%20undangan%20digital%20tema%20*${encodeURIComponent(template.name)}*%20(Kategori:%20${template.category}).%20Bagaimana%20proses%20selanjutnya?`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 bg-rose-500 text-white py-4 rounded-xl font-bold hover:bg-rose-600 transition-all shadow-md text-center"
+          <div className="space-y-3">
+            <Link 
+              href="/builder" 
+              className="w-full bg-rose-500 text-white py-4 rounded-xl font-bold hover:bg-rose-600 transition-all shadow-md text-center flex items-center justify-center gap-2"
             >
-              Pesan Tema Ini (WA)
-            </a>
+              Kustomisasi di Studio Builder
+            </Link>
+            <div className="flex gap-4">
+              <Link href={`/preview/${template.id}`} className="flex-1 bg-slate-900 text-white py-3.5 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-md text-center text-sm flex items-center justify-center">
+                Live Preview
+              </Link>
+              <a 
+                href={`https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20tertarik%20untuk%20memesan%20undangan%20digital%20tema%20*${encodeURIComponent(template.name)}*%20(Kategori:%20${template.category}).%20Bagaimana%20proses%20selanjutnya?`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 border-2 border-rose-500 text-rose-500 hover:bg-rose-50 py-3.5 rounded-xl font-bold transition-all text-center text-sm flex items-center justify-center"
+              >
+                Pesan via WA
+              </a>
+            </div>
           </div>
         </div>
       </main>

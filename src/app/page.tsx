@@ -21,6 +21,9 @@ export default function Home() {
             <Link href="#features" className="text-slate-600 hover:text-rose-500 transition-colors">Fitur</Link>
             <Link href="#templates" className="text-slate-600 hover:text-rose-500 transition-colors">Tema (100+)</Link>
             <Link href="#pricing" className="text-slate-600 hover:text-rose-500 transition-colors">Harga</Link>
+            <Link href="/builder" className="text-rose-600 font-semibold hover:text-rose-700 transition-colors flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200">
+              <Sparkles className="w-3.5 h-3.5" /> Studio Builder
+            </Link>
           </div>
           <a 
             href="https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20ingin%20membuat%20undangan%20digital."
@@ -54,8 +57,11 @@ export default function Home() {
             Kelola tamu, RSVP, dan amplop digital dalam satu platform yang canggih.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/builder" className="bg-rose-500 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-rose-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-rose-500/25">
+              <Sparkles className="w-5 h-5" /> Coba Studio Builder
+            </Link>
             <Link href="#templates" className="bg-slate-900 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-              Lihat 100+ Tema <ArrowRight className="w-5 h-5" />
+              Katalog Tema <ArrowRight className="w-5 h-5" />
             </Link>
             <a 
               href="https://wa.me/6289607090592?text=Halo%20Admin%20IkutSeneng,%20saya%20mau%20tanya%20dan%20konsultasi%20tentang%20undangan%20digital."
